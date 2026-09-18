@@ -150,7 +150,8 @@ app.post('/register', async (req, res) => {
             email,
             address,
             district,
-            city
+            city,
+            role
         } = req.body;
 
         if (!name || !mobile) {
@@ -160,6 +161,10 @@ app.post('/register', async (req, res) => {
             );
 
         }
+
+        const accountRole = role === 'owner'
+            ? 'owner'
+            : 'customer';
 
         const [existing] = await db.execute(
             'SELECT id FROM users WHERE mobile = ?',
@@ -185,14 +190,15 @@ app.post('/register', async (req, res) => {
                 city,
                 role
             )
-            VALUES (?, ?, ?, ?, ?, ?, 'customer')`,
+            VALUES (?, ?, ?, ?, ?, ?, ?)`,
             [
                 name,
                 mobile,
                 email || null,
                 address || null,
                 district || null,
-                city || null
+                city || null,
+                accountRole
             ]
         );
 
