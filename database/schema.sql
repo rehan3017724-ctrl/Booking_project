@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS bihar_vehicle;
+CREATE DATABASE IF NOT EXISTS vehicles;
 
-USE bihar_vehicle;
+USE vehicles;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
