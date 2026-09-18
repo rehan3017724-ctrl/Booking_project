@@ -1,7 +1,7 @@
 {
-  "name": "bihar-vehicle-booking",
+  "name": "vehicle-booking",
   "version": "1.0.0",
-  "description": "Vehicle booking platform for Bihar",
+  "description": "Vehicle booking platform",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
