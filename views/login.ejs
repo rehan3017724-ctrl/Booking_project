@@ -1,0 +1,71 @@
+<%- include('partials/header', { user: null }) %>
+
+<div class="row justify-content-center">
+
+    <div class="col-md-5">
+
+        <div class="card shadow">
+
+            <div class="card-body p-4">
+
+                <h2 class="mb-4">
+                    Login
+                </h2>
+
+                <form
+                    method="POST"
+                    action="/login"
+                >
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Mobile Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            name="mobile"
+                            class="form-control"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Admin only"
+                        >
+
+                        <small class="text-muted">
+                            Customers use OTP login.
+                            Admin uses password.
+                        </small>
+
+                    </div>
+
+                    <button
+                        class="btn btn-primary w-100"
+                    >
+                        Login
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<%- include('partials/footer') %>

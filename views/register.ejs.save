@@ -1,0 +1,216 @@
+<%- include('partials/header') %>
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7 col-lg-6">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body p-4 p-md-5">
+
+                    <div class="text-center mb-4">
+
+                        <h2 class="fw-bold">
+                            Create Account
+                        </h2>
+
+                        <p class="text-muted">
+                            Register for Bihar Vehicle Booking
+                        </p>
+
+                    </div>
+
+                    <form
+                        action="/register"
+                        method="POST"
+                    >
+
+                        <!-- Name -->
+
+                        <div class="mb-3">
+
+                            <label
+                                for="name"
+                                class="form-label"
+                            >
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Mobile -->
+
+                        <div class="mb-3">
+
+                            <label
+                                for="mobile"
+                                class="form-label"
+                            >
+                                Mobile Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                class="form-control"
+                                id="mobile"
+                                name="mobile"
+                                placeholder="Enter 10 digit mobile number"
+                                pattern="[0-9]{10}"
+                                maxlength="10"
+                                required
+                            >
+
+                            <div class="form-text">
+                                We will use this number for login and OTP verification.
+                            </div>
+
+                        </div>
+
+
+                        <!-- Email -->
+
+                        <div class="mb-3">
+
+                            <label
+                                for="email"
+                                class="form-label"
+                            >
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                                name="email"
+                                placeholder="Enter email address"
+                            >
+
+                        </div>
+
+
+                        <!-- Address -->
+
+                        <div class="mb-3">
+
+                            <label
+                                for="address"
+                                class="form-label"
+                            >
+                                Address
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                id="address"
+                                name="address"
+                                rows="3"
+                                placeholder="Enter your address"
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="row">
+
+                            <!-- District -->
+
+                            <div class="col-md-6 mb-3">
+
+                                <label
+                                    for="district"
+                                    class="form-label"
+                                >
+                                    District
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="district"
+                                    name="district"
+                                    placeholder="e.g. Patna"
+                                >
+
+                            </div>
+
+
+                            <!-- City -->
+
+                            <div class="col-md-6 mb-3">
+
+                                <label
+                                    for="city"
+                                    class="form-label"
+                                >
+                                    City
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="city"
+                                    name="city"
+                                    placeholder="Enter city"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Submit -->
+
+                        <div class="d-grid mt-4">
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary btn-lg"
+                            >
+                                Register
+                            </button>
+
+                        </div>
+
+                    </form>
+
+
+                    <div class="text-center mt-4">
+
+                        <span class="text-muted">
+                            Already have an account?
+                        </span>
+
+                        <a
+                            href="/login"
+                            class="text-decoration-none"
+                        >
+                            Login
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,206 @@
+<%- include('partials/header') %>
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow">
+
+            <div class="card-body p-4">
+
+                <h2>
+                    Register Your Vehicle
+                </h2>
+
+                <form
+                    method="POST"
+                    action="/vehicle/register"
+                >
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Vehicle Category
+                        </label>
+
+                        <select
+                            name="category"
+                            class="form-select"
+                            required
+                        >
+
+                            <option>
+                                Scorpio / SUV
+                            </option>
+
+                            <option>
+                                Sedan
+                            </option>
+
+                            <option>
+                                Hatchback
+                            </option>
+
+                            <option>
+                                MUV / Innova
+                            </option>
+
+                            <option>
+                                Luxury
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Brand
+                            </label>
+
+                            <input
+                                name="brand"
+                                class="form-control"
+                            >
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Model
+                            </label>
+
+                            <input
+                                name="model"
+                                class="form-control"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Registration Number
+                        </label>
+
+                        <input
+                            name="registration_number"
+                            class="form-control"
+                            placeholder="BR01AB1234"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Manufacturing Year
+                            </label>
+
+                            <input
+                                type="number"
+                                name="manufacturing_year"
+                                class="form-control"
+                            >
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Seats
+                            </label>
+
+                            <input
+                                type="number"
+                                name="seating_capacity"
+                                class="form-control"
+                            >
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Color
+                            </label>
+
+                            <input
+                                name="color"
+                                class="form-control"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                District
+                            </label>
+
+                            <input
+                                name="district"
+                                class="form-control"
+                            >
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                City
+                            </label>
+
+                            <input
+                                name="city"
+                                class="form-control"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Price Per Day
+                        </label>
+
+                        <input
+                            type="number"
+                            name="price_per_day"
+                            class="form-control"
+                        >
+
+                    </div>
+
+                    <button
+                        class="btn btn-primary w-100"
+                    >
+                        Submit Vehicle
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<%- include('partials/footer') %>

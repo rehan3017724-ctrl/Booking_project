@@ -1,0 +1,107 @@
+<%- include('partials/header', { user: user }) %>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+
+        <h2>
+            Welcome, <%= user.name %>
+        </h2>
+
+        <p class="text-muted">
+            Your vehicle booking dashboard
+        </p>
+
+    </div>
+
+    <a
+        href="/booking"
+        class="btn btn-primary"
+    >
+        + Book Vehicle
+    </a>
+
+</div>
+
+<h4 class="mb-3">
+    My Bookings
+</h4>
+
+<div class="table-responsive">
+
+<table class="table table-bordered table-hover">
+
+    <thead class="table-primary">
+
+        <tr>
+
+            <th>ID</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Date</th>
+            <th>Vehicle</th>
+            <th>Status</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <% bookings.forEach(booking => { %>
+
+            <tr>
+
+                <td>
+                    #<%= booking.id %>
+                </td>
+
+                <td>
+                    <%= booking.pickup_address %>
+                </td>
+
+                <td>
+                    <%= booking.destination_address %>
+                </td>
+
+                <td>
+                    <%= booking.pickup_date %>
+                </td>
+
+                <td>
+                    <% if (booking.registration_number) { %>
+
+                        <%= booking.category %>
+                        <br>
+                        <small>
+                            <%= booking.registration_number %>
+                        </small>
+
+                    <% } else { %>
+
+                        Not assigned
+
+                    <% } %>
+                </td>
+
+                <td>
+
+                    <span class="badge bg-secondary">
+
+                        <%= booking.status %>
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+        <% }) %>
+
+    </tbody>
+
+</table>
+
+</div>
+
+<%- include('partials/footer') %>

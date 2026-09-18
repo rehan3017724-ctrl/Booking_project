@@ -1,0 +1,145 @@
+<%- include('partials/header', { user: user }) %>
+
+<div class="hero">
+
+    <div class="row align-items-center">
+
+        <div class="col-lg-7">
+
+            <h1 class="display-4 fw-bold">
+                Book a Vehicle
+            </h1>
+
+            <p class="lead">
+                Book cars for marriage, family functions,
+                travel, airport pickup and outstation trips.
+            </p>
+
+            <% if (user) { %>
+
+                <a
+                    href="/booking"
+                    class="btn btn-light btn-lg"
+                >
+                    Book a Vehicle
+                </a>
+
+            <% } else { %>
+
+                <a
+                    href="/register"
+                    class="btn btn-light btn-lg"
+                >
+                    Get Started
+                </a>
+
+            <% } %>
+
+        </div>
+
+        <div class="col-lg-5">
+
+            <div class="card shadow">
+
+                <div class="card-body">
+
+                    <h4>
+                        Available Vehicle Categories
+                    </h4>
+
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            🚙 Scorpio / SUV
+                        </li>
+
+                        <li class="list-group-item">
+                            🚗 Sedan
+                        </li>
+
+                        <li class="list-group-item">
+                            🚘 Hatchback
+                        </li>
+
+                        <li class="list-group-item">
+                            🚐 MUV / Innova
+                        </li>
+
+                        <li class="list-group-item">
+                            ⭐ Luxury Cars
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mt-5">
+
+    <div class="col-md-4">
+
+        <div class="card h-100">
+
+            <div class="card-body">
+
+                <h4>Easy Booking</h4>
+
+                <p>
+                    Enter pickup location, destination,
+                    date and preferred vehicle.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card h-100">
+
+            <div class="card-body">
+
+                <h4>Verified Vehicles</h4>
+
+                <p>
+                    Vehicles can be verified and approved
+                    by the platform administrator.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card h-100">
+
+            <div class="card-body">
+
+                <h4>Reliable Service</h4>
+
+                <p>
+                    Designed for local and outstation
+                    transportation requirements for every journey.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<%- include('partials/footer') %>

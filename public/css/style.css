@@ -1,0 +1,320 @@
+<%- include('partials/header', { user: user }) %>
+
+<h2 class="mb-4">
+    Admin Dashboard
+</h2>
+
+<div class="row mb-5">
+
+    <div class="col-md-3">
+
+        <div class="card bg-primary text-white">
+
+            <div class="card-body">
+
+                <h3>
+                    <%= customers.length %>
+                </h3>
+
+                Customers
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-success text-white">
+
+            <div class="card-body">
+
+                <h3>
+                    <%= owners.length %>
+                </h3>
+
+                Owners
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-warning">
+
+            <div class="card-body">
+
+                <h3>
+                    <%= vehicles.length %>
+                </h3>
+
+                Vehicles
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-info">
+
+            <div class="card-body">
+
+                <h3>
+                    <%= bookings.length %>
+                </h3>
+
+                Bookings
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<h3>
+    Vehicle Management
+</h3>
+
+<div class="table-responsive mb-5">
+
+<table class="table table-bordered">
+
+<thead class="table-dark">
+
+<tr>
+
+    <th>ID</th>
+    <th>Owner</th>
+    <th>Vehicle</th>
+    <th>Registration</th>
+    <th>Location</th>
+    <th>Status</th>
+    <th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<% vehicles.forEach(vehicle => { %>
+
+<tr>
+
+    <td>
+        <%= vehicle.id %>
+    </td>
+
+    <td>
+        <%= vehicle.owner_name %>
+        <br>
+        <small>
+            <%= vehicle.owner_mobile %>
+        </small>
+    </td>
+
+    <td>
+        <%= vehicle.brand %>
+        <%= vehicle.model %>
+    </td>
+
+    <td>
+        <%= vehicle.registration_number %>
+    </td>
+
+    <td>
+        <%= vehicle.city %>,
+        <%= vehicle.district %>
+    </td>
+
+    <td>
+        <span class="badge bg-secondary">
+            <%= vehicle.status %>
+        </span>
+    </td>
+
+    <td>
+
+        <form
+            method="POST"
+            action="/admin/vehicle/<%= vehicle.id %>/status"
+            class="d-flex gap-1"
+        >
+
+            <button
+                name="status"
+                value="approved"
+                class="btn btn-sm btn-success"
+            >
+                Approve
+            </button>
+
+            <button
+                name="status"
+                value="rejected"
+                class="btn btn-sm btn-danger"
+            >
+                Reject
+            </button>
+
+        </form>
+
+    </td>
+
+</tr>
+
+<% }) %>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<h3>
+    Booking Management
+</h3>
+
+<div class="table-responsive">
+
+<table class="table table-bordered">
+
+<thead class="table-dark">
+
+<tr>
+
+    <th>Booking</th>
+    <th>Customer</th>
+    <th>Route</th>
+    <th>Date</th>
+    <th>Category</th>
+    <th>Status</th>
+    <th>Assign Vehicle</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<% bookings.forEach(booking => { %>
+
+<tr>
+
+    <td>
+        #<%= booking.id %>
+    </td>
+
+    <td>
+        <%= booking.customer_name %>
+        <br>
+        <small>
+            <%= booking.customer_mobile %>
+        </small>
+    </td>
+
+    <td>
+
+        <strong>From:</strong>
+        <%= booking.pickup_address %>
+
+        <br>
+
+        <strong>To:</strong>
+        <%= booking.destination_address %>
+
+    </td>
+
+    <td>
+        <%= booking.pickup_date %>
+        <br>
+        <%= booking.pickup_time %>
+    </td>
+
+    <td>
+        <%= booking.vehicle_category %>
+    </td>
+
+    <td>
+
+        <span class="badge bg-secondary">
+            <%= booking.status %>
+        </span>
+
+    </td>
+
+    <td>
+
+        <form
+            method="POST"
+            action="/admin/booking/<%= booking.id %>/status"
+        >
+
+            <select
+                name="vehicle_id"
+                class="form-select form-select-sm mb-2"
+            >
+
+                <option value="">
+                    Select Vehicle
+                </option>
+
+                <% vehicles
+                    .filter(v => v.status === 'approved')
+                    .forEach(vehicle => {
+                %>
+
+                    <option value="<%= vehicle.id %>">
+
+                        <%= vehicle.category %>
+                        -
+                        <%= vehicle.registration_number %>
+
+                    </option>
+
+                <% }) %>
+
+            </select>
+
+            <button
+                name="status"
+                value="confirmed"
+                class="btn btn-sm btn-success"
+            >
+                Confirm
+            </button>
+
+            <button
+                name="status"
+                value="rejected"
+                class="btn btn-sm btn-danger"
+            >
+                Reject
+            </button>
+
+        </form>
+
+    </td>
+
+</tr>
+
+<% }) %>
+
+</tbody>
+
+</table>
+
+</div>
+
+<%- include('partials/footer') %>

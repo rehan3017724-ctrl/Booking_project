@@ -1,0 +1,80 @@
+<%- include('partials/header', { user: user }) %>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>
+        Vehicle Owner Dashboard
+    </h2>
+
+    <a
+        href="/vehicle/register"
+        class="btn btn-primary"
+    >
+        + Register Vehicle
+    </a>
+
+</div>
+
+<div class="table-responsive">
+
+<table class="table table-bordered">
+
+    <thead class="table-primary">
+
+        <tr>
+
+            <th>Category</th>
+            <th>Vehicle</th>
+            <th>Registration</th>
+            <th>City</th>
+            <th>Price/Day</th>
+            <th>Status</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <% vehicles.forEach(vehicle => { %>
+
+            <tr>
+
+                <td>
+                    <%= vehicle.category %>
+                </td>
+
+                <td>
+                    <%= vehicle.brand %>
+                    <%= vehicle.model %>
+                </td>
+
+                <td>
+                    <%= vehicle.registration_number %>
+                </td>
+
+                <td>
+                    <%= vehicle.city %>
+                </td>
+
+                <td>
+                    ₹<%= vehicle.price_per_day || '-' %>
+                </td>
+
+                <td>
+                    <span class="badge bg-secondary">
+                        <%= vehicle.status %>
+                    </span>
+                </td>
+
+            </tr>
+
+        <% }) %>
+
+    </tbody>
+
+</table>
+
+</div>
+
+<%- include('partials/footer') %>
