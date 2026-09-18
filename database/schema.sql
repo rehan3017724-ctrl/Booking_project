@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS vehicles;
+CREATE DATABASE IF NOT EXISTS vehicle_booking;
 
-USE vehicles;
+USE vehicle_booking;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,

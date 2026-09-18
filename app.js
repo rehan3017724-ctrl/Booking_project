@@ -60,7 +60,7 @@ async function connectDatabase() {
         host: process.env.DB_HOST || '127.0.0.1',
         user: process.env.DB_USER || 'root',
         password: process.env.DB_PASSWORD || '',
-        database: process.env.DB_NAME || 'bihar_vehicle',
+        database: process.env.DB_NAME || 'vehicle_booking',
         waitForConnections: true,
         connectionLimit: 10,
         queueLimit: 0
