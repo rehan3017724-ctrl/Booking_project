@@ -58,9 +58,15 @@ let db;
 async function connectDatabase() {
     db = await mysql.createPool({
         host: process.env.DB_HOST || '127.0.0.1',
-        user: process.env.DB_USER || 'root',
+        port: process.env.DB_PORT || 4000,
+        user: process.env.DB_USERNAME || 'root',
         password: process.env.DB_PASSWORD || '',
-        database: process.env.DB_NAME || 'vehicle_booking',
+        database: process.env.DB_DATABASE || 'vehicle_booking',
+
+        ssl: {
+            minVersion: 'TLSv1.2'
+        },
+
         waitForConnections: true,
         connectionLimit: 10,
         queueLimit: 0
@@ -68,7 +74,7 @@ async function connectDatabase() {
 
     const connection = await db.getConnection();
 
-    console.log('MySQL connected');
+    console.log('MySQL/TiDB connected');
 
     connection.release();
 }
